@@ -16,6 +16,8 @@ const listNumber = [
  
 let findNumber = 45;
 
+// BUSCAR INDEX
+
 function search(array, value) {
     let index = 0
     let end = array.length - 1
@@ -32,8 +34,28 @@ function search(array, value) {
     return midpoint
 }
 
+// BUSCAR NUMERO
 
-console.log(search(listNumber, findNumber))
+function busquedaBinaria(arr, busqueda) {
+
+    const puntoMedio = Math.floor(arr.length / 2);
+  
+    if (arr[puntoMedio] === busqueda) {
+      return arr[puntoMedio];
+    }
+  
+    if (arr[puntoMedio] < busqueda && arr.length > 1) {
+     return busquedaBinaria(arr.slice(puntoMedio), busqueda);
+    }
+  
+    if (arr[puntoMedio] > busqueda && arr.length > 1) {
+     return busquedaBinaria(arr.slice(0, puntoMedio), busqueda);
+    }
+  
+    return "no encontrado :(";
+}
+
+console.log(busquedaBinaria(listNumber, findNumber))
 
 
 // EJERCICIO 2
